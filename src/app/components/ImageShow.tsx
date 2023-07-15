@@ -1,6 +1,9 @@
-const ImageShow = () => {
+
+const ImageShow = ({image} : any) => {
     return (
-        <h1>Image Show</h1>
+        <div>
+            <img className="mb-[10px] w-[100%]" src={image.urls.small} alt={image.alt_description} />
+        </div>
     )
 }
 
