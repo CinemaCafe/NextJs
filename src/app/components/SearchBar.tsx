@@ -1,5 +1,6 @@
 "use client";
 import { Button, Card, CardBody, CardFooter, Input, Typography } from "@material-tailwind/react";
+import Link from "next/link";
 import { useState } from "react";
 
 interface Props {
@@ -51,7 +52,7 @@ const SearchBar = ( {onSubmit} : Props) => {
                     </CardBody>
                     <CardFooter className="pt-0">
                         {/* <Button onClick={handleClick}>Click Me</Button> */}
-                        <Button type="submit">Click me</Button>
+                        <Button type="submit" className="me-3">Click me</Button>
                     </CardFooter>
                 </form>
             </Card>
