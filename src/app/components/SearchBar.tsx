@@ -1,6 +1,5 @@
 "use client";
 import { Button, Card, CardBody, CardFooter, Input, Typography } from "@material-tailwind/react";
-import Link from "next/link";
 import { useState } from "react";
 
 interface Props {
