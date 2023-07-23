@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import { Card, CardBody, CardHeader, Typography } from "@material-tailwind/react";
 
 const ImageShow = ({image} : any) => {

@@ -15,13 +15,14 @@ const BookCreate = ({onCreate} : Props) => {
 
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
+        if (title === "") return;
         onCreate(title);
         setTitle("");
     }
 
     return (
-        <div className="container mx-auto flex justify-center mb-6 absolute inset-x-0 bottom-0">
-            <Card className="mt-6 w-full">
+        <div className="container mx-auto flex justify-center mb-3 sticky inset-x-0 bottom-0 ">
+            <Card className="w-96" >
                 <form onSubmit={handleSubmit}>
                     <CardBody>
                         <Typography variant="h5" color="blue-gray" className="mb-4 flex items-center gap-3">
