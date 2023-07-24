@@ -7,7 +7,7 @@ const responseBody = (response: AxiosResponse) => response.data;
 
 const requests = {
     get: (url: string, header : {}) => axios.get(url, header).then(responseBody),
-    post: (url: string, body: {}) => axios.post(url).then(responseBody),
+    post: (url: string, body: {}, config: {}) => axios.post(url, body, config).then(responseBody),
     put: (url: string, body: {}) => axios.put(url).then(responseBody),
     delete: (url: string) => axios.delete(url).then(responseBody)
 }
@@ -23,8 +23,18 @@ const ImageAPI =  {
     })
 }
 
+const config = {
+    baseURL : "http://localhost:3001/"
+}
+
+const BookAPI = {
+    create : (title:string) => requests.post("books", {title: title}, config)
+}
+
+
 const agent = {
-    ImageAPI
+    ImageAPI,
+    BookAPI
 }
 
 export default agent;

@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "server" : "json-server -p 3001 --watch db.json"
   },
   "dependencies": {
     "@emotion/react": "^11.11.1",
@@ -22,6 +23,7 @@
     "axios": "^1.4.0",
     "eslint": "8.44.0",
     "eslint-config-next": "13.4.9",
+    "json-server": "^0.17.3",
     "next": "13.4.9",
     "postcss": "8.4.25",
     "react": "18.2.0",

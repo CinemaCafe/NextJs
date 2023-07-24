@@ -38,12 +38,6 @@ const BookShow = ({book, onDelete, onEdit} : Props) => {
         contnet = <BookEdit book={book} onSubmit={handleSubmit}/>
     }
 
-    const bookImg = async (term: string) => {
-        const result = await agent.ImageAPI.srch(term);
-        // setImages(result.results);
-        return result.results[0].urls.small;
-    }
-
     useEffect(() => {
         agent.ImageAPI.srch(book.title).then(data => {
             setImgUrl(data.results[0].urls.small);
