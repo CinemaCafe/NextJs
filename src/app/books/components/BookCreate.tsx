@@ -1,5 +1,4 @@
 "use client"
-import agent from "@/app/api/agent";
 import { BookOpenIcon, PlusIcon } from "@heroicons/react/24/outline";
 import { Card, CardBody, Typography, CardFooter, Button, Input, IconButton } from "@material-tailwind/react";
 import { useState } from "react";
@@ -18,7 +17,6 @@ const BookCreate = ({onCreate} : Props) => {
         e.preventDefault();
         if (title === "") return;
         onCreate(title);
-        agent.BookAPI.create(title);
         setTitle("");
     }
 
