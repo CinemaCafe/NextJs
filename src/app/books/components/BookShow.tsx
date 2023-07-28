@@ -5,27 +5,29 @@ import { Card, CardBody, Typography, CardFooter, Button, CardHeader } from "@mat
 import { useEffect, useState } from "react";
 import BookEdit from "./BookEdit";
 import agent from "@/app/api/agent";
+import useBooksContext from "@/app/hooks/use-books-context";
+
 interface Props {
-    book : Book;
-    onDelete : (id: number) => void;
-    onEdit : (id: number, newTitle: string) => void;
+    book : Book
 }
 
-const BookShow = ({book, onDelete, onEdit} : Props) => {
+const BookShow = ( { book } : Props) => {
+    // const { deleteBookById } = useContext(BooksContext);
+    const { deleteBookById } = useBooksContext();
+
     const [showEdit, setShowEdit] = useState(false);
     const [imgUrl, setImgUrl] = useState("");
 
     const handleDeleteClick = () => {
-        onDelete(book.id);
+        deleteBookById(book.id);
     };
 
     const handleEditClick = () => {
         setShowEdit(!showEdit);
     };
 
-    const handleSubmit = (id: number, title: string) => {
+    const handleSubmit = () => {
         setShowEdit(false);
-        onEdit(id, title);
     }
 
     let contnet = (
@@ -43,8 +45,6 @@ const BookShow = ({book, onDelete, onEdit} : Props) => {
             setImgUrl(data.results[0].urls.small);
         });
     }, [book.title])
-
-    
 
     return (
         <Card className="mx-1 md:mx-0">

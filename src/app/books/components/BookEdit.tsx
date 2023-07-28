@@ -2,14 +2,19 @@ import { Book } from "@/app/models/book";
 import { CheckIcon, PencilSquareIcon } from "@heroicons/react/24/outline";
 import { Card, CardBody, Typography, CardFooter, Button, Input } from "@material-tailwind/react";
 import React, { useState } from "react";
+import useBooksContext from "@/app/hooks/use-books-context";
 
 interface Props {
     book : Book;
-    onSubmit : (id: number, title: string) => void
+    onSubmit : () => void
 }
 
 const BookEdit = ({book, onSubmit} : Props) => {
     const [title, setTitle] = useState(book.title);
+
+    // const { editBookById } = useContext(BooksContext);
+    const { editBookById } = useBooksContext();
+
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setTitle(e.target.value);
@@ -17,7 +22,9 @@ const BookEdit = ({book, onSubmit} : Props) => {
 
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        onSubmit(book.id, title);
+        // to disable the edit card
+        onSubmit();
+        editBookById(book.id, title);
     }
 
     return (

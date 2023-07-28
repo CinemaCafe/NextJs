@@ -1,13 +1,16 @@
 "use client"
 import { BookOpenIcon, PlusIcon } from "@heroicons/react/24/outline";
-import { Card, CardBody, Typography, CardFooter, Button, Input, IconButton } from "@material-tailwind/react";
+import { Card, CardBody, Typography, CardFooter, Button, Input } from "@material-tailwind/react";
 import { useState } from "react";
-interface Props {
-    onCreate : (title: string) => void;
-}
+import useBooksContext from "@/app/hooks/use-books-context";
 
-const BookCreate = ({onCreate} : Props) => {
+
+const BookCreate = () => {
     const [title, setTitle] = useState("");
+    
+    // const { createBook } = useContext(BooksContext);
+    // custom hook
+    const { createBook } = useBooksContext();
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setTitle(e.target.value);
@@ -16,7 +19,7 @@ const BookCreate = ({onCreate} : Props) => {
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         if (title === "") return;
-        onCreate(title);
+        createBook(title);
         setTitle("");
     }
 
