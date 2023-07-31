@@ -14,7 +14,7 @@ const BookApp = () => {
     // https://codepen.io/sgrider/pen/BarEowz 
     useEffect(()=> {
         fetchBook();
-    }, [fetchBook])
+    }, [fetchBook]);
 
     // books.length > 0 &&  console.log(books);
 

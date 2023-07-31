@@ -1,4 +1,4 @@
-import { PropsWithChildren, createContext, useState } from "react";
+import { PropsWithChildren, createContext, useCallback, useState } from "react";
 import agent from "../api/agent";
 import { Book } from "../models/book";
 
@@ -17,10 +17,14 @@ const BooksContext = createContext<BookContextValue>({books: [], fetchBook : () 
 const Provider = ( { children } : PropsWithChildren<any> ) => {
     const [books, setBooks] = useState<Book[]>([]);
 
-    const fetchBook = async () => {
+    // useCallback is a React Hook that lets you cache a function definition between re-renders.
+    // https://react.dev/reference/react/useCallback
+    // to prevent infinity loop fetchBook function
+    const fetchBook = useCallback(async () => {
         const response = await agent.BookAPI.getlist();
         setBooks(response);
-    }
+    }, []);
+
 
     const deleteBookById = async (id:number) => {
         await agent.BookAPI.delete(id);
@@ -46,6 +50,7 @@ const Provider = ( { children } : PropsWithChildren<any> ) => {
         const response = await agent.BookAPI.create(title)
         setBooks(prev => [...prev, response]);
     };
+
 
 
     // put all these things in the object
