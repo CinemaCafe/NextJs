@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "server" : "json-server -p 3001 --watch db.json"
+    "server": "json-server -p 3001 --watch db.json"
   },
   "dependencies": {
     "@emotion/react": "^11.11.1",
@@ -21,6 +21,7 @@
     "@types/react-dom": "18.2.7",
     "autoprefixer": "10.4.14",
     "axios": "^1.4.0",
+    "classnames": "^2.3.2",
     "eslint": "8.44.0",
     "eslint-config-next": "13.4.9",
     "json-server": "^0.17.3",
