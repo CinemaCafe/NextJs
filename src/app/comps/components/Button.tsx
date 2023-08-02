@@ -1,5 +1,6 @@
 import { PropsWithChildren } from "react";
 import classNames from "classnames";
+import { twMerge } from "tailwind-merge";
 
 interface Props {
     primary? : boolean,
@@ -38,7 +39,11 @@ const Button = ({ children, primary, secondary, success, warning, danger, outlin
         "text-yellow-500": outline && warning,
         "text-red-500": outline && danger,
     });
-    return <button className={classes}>{children}</button>;
+    // to override class
+    // ex : class = "border-blue-500 bg-blue-500 text-white text-blue-500" => "border-blue-500 bg-blue-500 text-blue-500"
+    const mergeClass = twMerge(classes);
+
+    return <button className={mergeClass}>{children}</button>;
 }
 
 export default Button;

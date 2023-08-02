@@ -8,16 +8,16 @@ const CompsApp = () => {
                 <Button success rounded outline>Click Me</Button>
             </div>
             <div>
-                <Button danger>Buy Now!</Button>
+                <Button danger outline>Buy Now!</Button>
             </div>
             <div>
-                <Button warning>See Deal!</Button>
+                <Button warning rounded>See Deal!</Button>
             </div>
             <div>
                 <Button secondary rounded outline>Hi Ads!</Button>
             </div>
             <div>
-                <Button primary rounded outline>Something!</Button>
+                <Button primary rounded>Something!</Button>
             </div>
 
         </div>
