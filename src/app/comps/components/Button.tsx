@@ -1,4 +1,3 @@
-import { PropsWithChildren } from "react";
 import classNames from "classnames";
 import { twMerge } from "tailwind-merge";
 
@@ -9,14 +8,16 @@ interface Props {
     warning? : boolean,
     danger? : boolean,
     outline? : boolean,
-    rounded? : boolean
+    rounded? : boolean,
+    children? : React.ReactNode
 }
 
 // In React, the children prop is a special prop that allows you to pass content 
 // or components to a React component from its parent component. 
 // It is a way to include elements, text, or other React components between the opening and closing tags of a custom component. 
 // This enables you to create reusable components that can render different content based on the context in which they are used.
-const Button = ({ children, primary, secondary, success, warning, danger, outline, rounded } : PropsWithChildren<Props>) => {
+// const Button = ({ children, primary, secondary, success, warning, danger, outline, rounded } : PropsWithChildren<Props>) 
+const Button = ({ children, primary, secondary, success, warning, danger, outline, rounded } : Props) => {
     
     // const trueCount = [primary, secondary, success, warning, danger].filter(x => x === true).length;
     const trueCount = [primary, secondary, success, warning, danger].filter(Boolean).length;
@@ -25,7 +26,7 @@ const Button = ({ children, primary, secondary, success, warning, danger, outlin
         throw new Error("Only one of primary, secondary, success, warning, danger, outline, or rounded can be true.");
     }
 
-    const classes = classNames("px-3 py-1.5 border mb-2", {
+    const classes = classNames("flex items-center px-3 py-1.5 border mb-2", {
         "border-blue-500 bg-blue-500 text-white": primary,
         "border-gray-900 bg-gray-900 text-white": secondary,
         "border-green-500 bg-green-500 text-white": success,
