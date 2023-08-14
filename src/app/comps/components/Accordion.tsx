@@ -16,8 +16,22 @@ const Accordion = ( {Items} : Props) => {
     const [expandedIndex, setExpendIndex] = useState(-1);
 
     const handleClick = (idx : number) => {
-        idx = (idx === expandedIndex) ? -1 : idx;
-        setExpendIndex(idx);
+        // solution
+        // console.log("STALE version of expandedIndex", expandedIndex);
+        // setExpendIndex((currentExpandIndex) => {
+        //     console.log("UP TO DATE version", currentExpandIndex);
+        //     if (currentExpandIndex === idx) {
+        //         return -1
+        //     } else {
+        //         return idx;
+        //     }
+        // });
+        setExpendIndex(prev => (prev === idx) ? -1 : idx);
+        
+        // -- it's going to have a bug;
+        // console.log(expandedIndex);
+        // idx = (idx === expandedIndex) ? -1 : idx;
+        // setExpendIndex(idx);
     };
 
     const renderItems = Items.map((item, index) => {
@@ -25,7 +39,7 @@ const Accordion = ( {Items} : Props) => {
         //     console.log("expanded");
         // } else {
         //     console.log("collapsed");
-        // }
+        // } 
         const isExpanded = index === expandedIndex;
         // console.log(isExpanded);
 
