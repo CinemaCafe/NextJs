@@ -2,7 +2,7 @@
 import classNames from "classnames";
 import { twMerge } from "tailwind-merge";
 
-interface Props extends React.ComponentPropsWithoutRef<"button"> {
+interface Props extends React.ComponentProps<"button"> {
     primary? : boolean,
     secondary? : boolean,
     success? : boolean,

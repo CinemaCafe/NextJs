@@ -1,4 +1,5 @@
 import Accordion from "./components/Accordion";
+import Button from "./components/Button";
 
 const CompsApp = () => {
     const items = [
@@ -22,7 +23,8 @@ const CompsApp = () => {
 
     return (
         <>
-            <Accordion Items={items}/>
+            <Button primary rounded>Test</Button>
+            {/* <Accordion Items={items}/> */}
             {/* <Nested orgData={org}/> */}
         </>
     )
